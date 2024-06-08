@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | AngelTheProg</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div class="navigation">
+        <ul>
+            <li data-tab-target="#home" class="list active">
+                <a href="#">
+                    <span class="icon">
+                        <ion-icon name="home-outline"></ion-icon>
+                    </span>
+                    <span class="text">Home</span>
+                </a>
+            </li>
+            <li data-tab-target="#tracker" class="list">
+                <a href="#">
+                    <span class="icon">
+                        <ion-icon name="list-circle-outline"></ion-icon>
+                    </span>
+                    <span class="text">Tracker</span>
+                </a>
+            </li>
+            <li data-tab-target="#counter" class="list">
+                <a href="#">
+                    <span class="icon">
+                        <ion-icon name="calculator-outline"></ion-icon>
+                    </span>
+                    <span class="text">Counter</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="https://ravelry.com/"> <!-- leads to https://ravelry.com/ -->
+                    <span class="icon">
+                        <ion-icon name="newspaper-outline"></ion-icon>
+                    </span>
+                    <span class="text">Ravelry</span>
+                </a>
+            </li>
+            <div class="indicator"></div>
+        </ul>
+    </div>
+
+    
+    <div class="center-box">
+      <!-- START Box -->
+      <div class="animated-border-box-glow"></div>
+      <div class="animated-border-box">
+
+        <!--text inside box-->
+        <div class="tab-content">
+          <div id="home" data-tab-content>
+              <h1 class="home1">Welcome,</h1>
+              <h2c class="home2">Elsa</h2>
+          </div>
+          <div class="tracker" id="tracker" data-tab-content>
+            <h1>tracker</h1>
+            <p>this is tracker</p>
+          </div>
+          <div class="counter" id="counter" data-tab-content>
+            <h1>counter</h1>
+            <p>this is counter</p>
+
+        <!--end of "inside the box"-->
+          </div>
+        </div>
+      </div>
+      <!-- END -->
+    </div>
+
+
+    <div class="tab-content">
+      <div class="home" id="home" data-tab-content>
+        <div class="container">
+          <h1>help</h1>
+          <p>this is home</p>
+        </div>
+      </div>
+      <div class="tracker" id="tracker" data-tab-content>
+        <h1>tracker</h1>
+        <p>this is tracker</p>
+      </div>
+      <div class="counter" id="counter" data-tab-content>
+        <h1>counter</h1>
+        <p>this is counter</p>
+      </div>
+    </div>
+    <script>
+      const tabs = document.querySelectorAll('[data-tab-target]')
+      const tabContents = document.querySelectorAll('[data-tab-content]')
+
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          const target = document.querySelector(tab.dataset.tabTarget)
+          tabContents.forEach(tabContent => tabContent.classList.remove('at'))
+          target.classList.add('at')
+        })
+      })
+    </script>
+    <script>
+        const list = document.querySelectorAll('.list');
+        function activeLink(){
+            list.forEach((item) =>
+            item.classList.remove('active'));
+            this.classList.add('active');
+        }
+        list.forEach((item) =>
+        item.addEventListener('click',activeLink));
+    </script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    
+</body>
+</html>
