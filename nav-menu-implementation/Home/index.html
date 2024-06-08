@@ -9,7 +9,7 @@
 <body>
     <div class="navigation">
         <ul>
-            <li class="list active">
+            <li data-tab-target="#home" class="list active">
                 <a href="#">
                     <span class="icon">
                         <ion-icon name="home-outline"></ion-icon>
@@ -17,15 +17,15 @@
                     <span class="text">Home</span>
                 </a>
             </li>
-            <li class="list">
-                <a href="#">
+            <li data-tab-target="#tracker" class="list">
+                <a href="/nav-menu-implementation/tracker/index.html">
                     <span class="icon">
                         <ion-icon name="list-circle-outline"></ion-icon>
                     </span>
                     <span class="text">Tracker</span>
                 </a>
             </li>
-            <li class="list">
+            <li data-tab-target="#counter" class="list">
                 <a href="#">
                     <span class="icon">
                         <ion-icon name="calculator-outline"></ion-icon>
@@ -34,7 +34,7 @@
                 </a>
             </li>
             <li class="list">
-                <a href="#">
+                <a href="https://ravelry.com/"> <!-- leads to https://ravelry.com/ -->
                     <span class="icon">
                         <ion-icon name="newspaper-outline"></ion-icon>
                     </span>
@@ -44,6 +44,77 @@
             <div class="indicator"></div>
         </ul>
     </div>
+
+    
+    <div class="center-box">
+      <!-- START Box -->
+      <div class="animated-border-box-glow"></div>
+      <div class="animated-border-box">
+
+        <!--text inside box-->
+        <div class="tab-content">
+          <div id="home" data-tab-content>
+              <h1 class="home1">Welcome,</h1>
+              <h2c class="home2">Elsa</h2>
+          </div>
+          </div>
+          <div class="counter-container" id="counter" data-tab-content>
+            <h1 class="RCtext">Row Counter</h1>
+            <div class="COUNT" id="row-counter">0</div>
+            <div>
+              <button class="inc_btn" id="increase-btn">Increase</button>
+              <button class="dec_btn" id="decrease-btn">Decrease</button>
+              <button class="rst_btn" id="reset-btn">Reset</button>
+            </div>
+          </div>
+
+         <!--end of "inside the box"-->
+          </div>
+        </div>
+      </div>
+      <!-- END -->
+    </div>
+    <script>
+      const rowCounter = document.getElementById('row-counter');
+      const increaseBtn = document.getElementById('increase-btn');
+      const decreaseBtn = document.getElementById('decrease-btn');
+      const resetBtn = document.getElementById('reset-btn');
+
+      let count = 0;
+
+      function updateCounter() {
+        rowCounter.textContent = count;
+      }
+
+      increaseBtn.addEventListener('click', () => {
+        count++;
+        updateCounter();
+      });
+
+      decreaseBtn.addEventListener('click', () => {
+        if (count > 0) {
+          count--;
+        }
+        updateCounter();
+      });
+
+      resetBtn.addEventListener('click', () => {
+        count = 0;
+        updateCounter();
+      });
+      </script>
+      <script>
+        const tabs = document.querySelectorAll('[data-tab-target]')
+        const tabContents = document.querySelectorAll('[data-tab-content]')
+
+        tabs.forEach(tab => {
+          tab.addEventListener('click', () => {
+            const target = document.querySelector(tab.dataset.tabTarget)
+            tabContents.forEach(tabContent => tabContent.classList.remove('at'))
+            target.classList.add('at')
+          })
+        })
+    </script>
     <script>
         const list = document.querySelectorAll('.list');
         function activeLink(){

@@ -3,98 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home | AngelTheProg</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <title>Yarn Tracker</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="navigation">
-        <ul>
-            <li data-tab-target="#home" class="list active">
-                <a href="#">
-                    <span class="icon">
-                        <ion-icon name="home-outline"></ion-icon>
-                    </span>
-                    <span class="text">Home</span>
-                </a>
-            </li>
-            <li data-tab-target="#tracker" class="list">
-                <a href="#">
-                    <span class="icon">
-                        <ion-icon name="list-circle-outline"></ion-icon>
-                    </span>
-                    <span class="text">Tracker</span>
-                </a>
-            </li>
-            <li data-tab-target="#counter" class="list">
-                <a href="#">
-                    <span class="icon">
-                        <ion-icon name="calculator-outline"></ion-icon>
-                    </span>
-                    <span class="text">Counter</span>
-                </a>
-            </li>
-            <li class="list">
-                <a href="https://ravelry.com/"> <!-- leads to https://ravelry.com/ -->
-                    <span class="icon">
-                        <ion-icon name="newspaper-outline"></ion-icon>
-                    </span>
-                    <span class="text">Ravelry</span>
-                </a>
-            </li>
-            <div class="indicator"></div>
-        </ul>
+    <div class="container">
+        <h1>Yarn Tracker</h1>
+        <form id="yarnForm">
+            <input type="date" id="datePurchased">
+            <input type="text" id="yarnName" placeholder="Enter yarn name" required>
+            <input type="text" id="yarnColor" placeholder="Enter color">
+            <input type="number" id="yarnWeight" placeholder="Enter weight(grams)">
+            <input type="text" id="yarnWeightNames" placeholder="Enter us yarn type">
+            <input type="text" id="yarnLenght" placeholder="Enter yarn lenght">
+            <input type="text" id="yarnGauge" placeholder="Enter gauge">
+            <input type="text" id="yarnBrand" placeholder="Enter brand">
+            <input type="number" id="yarnQuantity" placeholder="Enter quantity" min="1" required>
+            <button type="submit">Add Yarn</button>
+        </form>
+        <ul id="yarnList"></ul>
     </div>
-
-    
-    <div class="center-box">
-      <!-- START Box -->
-      <div class="animated-border-box-glow"></div>
-      <div class="animated-border-box">
-
-        <!--text inside box-->
-        <div class="tab-content">
-          <div id="home" data-tab-content>
-              <h1 class="home1">Welcome,</h1>
-              <h2c class="home2">Elsa</h2>
-          </div>
-          <div class="tracker" id="tracker" data-tab-content>
-            <h1>tracker</h1>
-            <p>this is tracker</p>
-          </div>
-          <div class="counter" id="counter" data-tab-content>
-            <h1>counter</h1>
-            <p>this is counter</p>
-
-        <!--end of "inside the box"-->
-          </div>
-        </div>
-      </div>
-      <!-- END -->
-    </div>
-    <script>
-      const tabs = document.querySelectorAll('[data-tab-target]')
-      const tabContents = document.querySelectorAll('[data-tab-content]')
-
-      tabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-          const target = document.querySelector(tab.dataset.tabTarget)
-          tabContents.forEach(tabContent => tabContent.classList.remove('at'))
-          target.classList.add('at')
-        })
-      })
-    </script>
-    <script>
-        const list = document.querySelectorAll('.list');
-        function activeLink(){
-            list.forEach((item) =>
-            item.classList.remove('active'));
-            this.classList.add('active');
-        }
-        list.forEach((item) =>
-        item.addEventListener('click',activeLink));
-    </script>
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    
+    <script src="script.js"></script>
 </body>
 </html>
